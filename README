@@ -1,0 +1,5 @@
+This project used this for inspiration:
+https://github.com/ekg/USDA-SR22-importer
+
+Used the following command to generate schema.sql
+mda-schema srXX.mdb mysql > schema.sql
