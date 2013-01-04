@@ -24,7 +24,7 @@ rm -rf $MY_DIR/tmp/*
 
 wget $DL_URL -P $MY_DIR/tmp
 unzip -d tmp/ tmp/sr25.zip
-
+dos2unix tmp/*.txt
 echo 'Generating raw data SQL statements'
 ls tmp/*.txt | xargs -n1 basename | perl -ne 'chomp; s/\.txt$//i;
 print <<"EOF"
