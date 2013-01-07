@@ -13,6 +13,7 @@ export MY_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
 # Current release
 export DL_URL=https://www.ars.usda.gov/SP2UserFiles/Place/12354500/Data/SR25/dnload/sr25.zip
+export DL_URL2=https://www.ars.usda.gov/SP2UserFiles/Place/12354500/Data/SR25/dnload/sr25abbr.zip
 
 if [ ! -d "$MY_DIR/tmp" ]; then
 	echo 'Local tmp directory not found... creating one'
@@ -23,7 +24,9 @@ echo 'Clearing all data in tmp directory'
 rm -rf $MY_DIR/tmp/*
 
 wget $DL_URL -P $MY_DIR/tmp
-unzip -d tmp/ tmp/sr25.zip
+wget $DL_URL2 -P $MY_DIR/tmp
+ls tmp/*.zip | xargs -n1 unzip -o -d tmp/
+
 dos2unix tmp/*.txt
 echo 'Generating raw data SQL statements'
 ls tmp/*.txt | xargs -n1 basename | perl -ne 'chomp; s/\.txt$//i;
