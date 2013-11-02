@@ -7,6 +7,9 @@
 -- ----------------------------------------------------------
 
 -- That file uses encoding UTF-8
+DROP TABLE IF EXISTS `ABBREV`, `ADD_FTNT`, `DATA_SRC`, `DATSRCLN`, `DERIV_CD`,
+`FD_GROUP`, `FOOD_DES`, `FOOTNOTE`, `LANGDESC`, `LANGUAL`, `NUTR_DEF`, `NUT_DATA`,
+`SRC_CD`, `WEIGHT`;
 
 CREATE TABLE `ABBREV`
  (

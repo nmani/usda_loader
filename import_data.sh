@@ -50,6 +50,6 @@ EOF
 
 echo 'Executing combined raw and schema SQL statements...'
 cat $MY_DIR/schema.sql $MY_DIR/tmp/raw_data.sql > $MY_DIR/tmp/fin_out.sql
-mysql --local -u$MY_USER -p$MY_PASS $MY_DB < $MY_DIR/tmp/fin_out.sql
+mysql --local-infile=1 -u$MY_USER -p$MY_PASS $MY_DB < $MY_DIR/tmp/fin_out.sql
 
 echo 'DONE'
