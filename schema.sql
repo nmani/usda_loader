@@ -1,6 +1,3 @@
-DROP TABLE IF EXISTS DATA_SRC,DATSRCLN,DERIV_CD,FD_GROUP,FOOD_DES,FOOTNOTE,
-LANGDESC,LANGUAL,NUT_DATA,NUTR_DEF,SRC_CD,WEIGHT,ABBREV;
-
 -- ----------------------------------------------------------
 -- MDB Tools - A library for reading MS Access database files
 -- Copyright (C) 2000-2011 Brian Bruns and others.
@@ -9,69 +6,71 @@ LANGDESC,LANGUAL,NUT_DATA,NUTR_DEF,SRC_CD,WEIGHT,ABBREV;
 -- Check out http://mdbtools.sourceforge.net
 -- ----------------------------------------------------------
 
+-- That file uses encoding UTF-8
+
 CREATE TABLE `ABBREV`
  (
-	`NDB_No`			varchar (510), 
-	`Shrt_Desc`			varchar (510), 
-	`Water(g)`			float, 
-	`Energ_Kcal`			float, 
-	`Protein(g)`			float, 
-	`Lipid_Tot(g)`			float, 
-	`Ash(g)`			float, 
-	`Carbohydrt(g)`			float, 
-	`Fiber_TD(g)`			float, 
-	`Sugar_Tot(g)`			float, 
-	`Calcium(mg)`			float, 
-	`Iron(mg)`			float, 
-	`Magnesium(mg)`			float, 
-	`Phosphorus(mg)`			float, 
-	`Potassium(mg)`			float, 
-	`Sodium(mg)`			float, 
-	`Zinc(mg)`			float, 
-	`Copper(mg)`			float, 
-	`Manganese(mg)`			float, 
-	`Selenium(mcg)`			float, 
-	`Vit_C(mg)`			float, 
-	`Thiamin(mg)`			float, 
-	`Riboflavin(mg)`			float, 
-	`Niacin(mg)`			float, 
-	`Panto_Acid(mg)`			float, 
-	`Vit_B6(mg)`			float, 
-	`Folate_Tot(mcg)`			float, 
-	`Folic_Acid(mcg)`			float, 
-	`Food_Folate(mcg)`			float, 
-	`Folate_DFE(mcg)`			float, 
+	`NDB_No`			varchar (10), 
+	`Shrt_Desc`			varchar (120), 
+	`Water_(g)`			float, 
+	`Energ_Kcal`			int, 
+	`Protein_(g)`			float, 
+	`Lipid_Tot_(g)`			float, 
+	`Ash_(g)`			float, 
+	`Carbohydrt_(g)`			float, 
+	`Fiber_TD_(g)`			float, 
+	`Sugar_Tot_(g)`			float, 
+	`Calcium_(mg)`			int, 
+	`Iron_(mg)`			float, 
+	`Magnesium_(mg)`			float, 
+	`Phosphorus_(mg)`			int, 
+	`Potassium_(mg)`			int, 
+	`Sodium_(mg)`			int, 
+	`Zinc_(mg)`			float, 
+	`Copper_mg)`			float, 
+	`Manganese_(mg)`			float, 
+	`Selenium_(µg)`			float, 
+	`Vit_C_(mg)`			float, 
+	`Thiamin_(mg)`			float, 
+	`Riboflavin_(mg)`			float, 
+	`Niacin_(mg)`			float, 
+	`Panto_Acid_mg)`			float, 
+	`Vit_B6_(mg)`			float, 
+	`Folate_Tot_(µg)`			float, 
+	`Folic_Acid_(µg)`			float, 
+	`Food_Folate_(µg)`			float, 
+	`Folate_DFE_(µg)`			float, 
 	`Choline_Tot_ (mg)`			float, 
-	`Vit_B12(mcg)`			float, 
-	`Vit_A_IU`			float, 
+	`Vit_B12_(µg)`			float, 
+	`Vit_A_IU`			int, 
 	`Vit_A_RAE`			float, 
-	`Retinol(mcg)`			float, 
-	`Alpha_Carot(mcg)`			float, 
-	`Beta_Carot(mcg)`			float, 
-	`Beta_Crypt(mcg)`			float, 
-	`Lycopene(mcg)`			float, 
-	`Lut+Zea_ (mcg)`			float, 
-	`Vit_E(mg)`			float, 
-	`Vit_D_mcg`			float, 
-	`ViVit_D_IU`			float, 
-	`Vit_K(mcg)`			float, 
-	`FA_Sat(g)`			float, 
-	`FA_Mono(g)`			float, 
-	`FA_Poly(g)`			float, 
-	`Cholestrl(mg)`		float, 
+	`Retinol_(µg)`			float, 
+	`Alpha_Carot_(µg)`			float, 
+	`Beta_Carot_(µg)`			float, 
+	`Beta_Crypt_(µg)`			float, 
+	`Lycopene_(µg)`			float, 
+	`Lut+Zea_ (µg)`			float, 
+	`Vit_E_(mg)`			float, 
+	`Vit_D_µg`			float, 
+	`Vit_D_IU`			float, 
+	`Vit_K_(µg)`			float, 
+	`FA_Sat_(g)`			float, 
+	`FA_Mono_(g)`			float, 
+	`FA_Poly_(g)`			float, 
+	`Cholestrl_(mg)`			int, 
 	`GmWt_1`			float, 
-	`GmWt_Desc1`			varchar (510), 
+	`GmWt_Desc1`			varchar (240), 
 	`GmWt_2`			float, 
-	`GmWt_Desc2`			varchar (510), 
-	`Refuse_Pct`			float
+	`GmWt_Desc2`			varchar (240), 
+	`Refuse_Pct`			int
 );
 
 CREATE TABLE `DATA_SRC`
  (
 	`DataSrc_ID`			varchar (12), 
 	`Authors`			varchar (510), 
-	`Title`			        varchar (510), 
-	`Year`		                varchar (8), 
+	`Title`			varchar (510), 
+	`Year`			varchar (8), 
 	`Journal`			varchar (270), 
 	`Vol_City`			varchar (32), 
 	`Issue_State`			varchar (10), 
@@ -81,9 +80,9 @@ CREATE TABLE `DATA_SRC`
 
 CREATE TABLE `DATSRCLN`
  (
-	`NDB_No`			varchar (10), 
-	`Nutr_No`			varchar (6), 
-	`DataSrc_ID`			varchar (12)
+	`NDB_No`			varchar (510), 
+	`Nutr_No`			varchar (510), 
+	`DataSrc_ID`			varchar (510)
 );
 
 CREATE TABLE `DERIV_CD`
@@ -94,7 +93,7 @@ CREATE TABLE `DERIV_CD`
 
 CREATE TABLE `FD_GROUP`
  (
-	`FdGrp_CD`			varchar (10), 
+	`FdGrp_CD`			varchar (8), 
 	`FdGrp_Desc`			varchar (120)
 );
 
@@ -118,11 +117,11 @@ CREATE TABLE `FOOD_DES`
 
 CREATE TABLE `FOOTNOTE`
  (
-	`NDB_NO`			varchar (510), 
-	`Footnt_No`			varchar (510), 
-	`Footnot_Typ`			varchar (510), 
-	`Nutr_No`			varchar (510), 
-	`Footnot_Txt`			varchar (510)
+	`NDB_No`			varchar (10), 
+	`Footnt_No`			varchar (8), 
+	`Footnot_Typ`			varchar (2), 
+	`Nutr_No`			varchar (6), 
+	`Footnot_Txt`			varchar (400)
 );
 
 CREATE TABLE `LANGDESC`
@@ -175,7 +174,17 @@ CREATE TABLE `WEIGHT`
 	`Amount`			float, 
 	`Msre_Desc`			varchar (168), 
 	`Gm_Wgt`			float, 
-	`Num_Data_Pts`			int
+	`Num_Data_Pts`			int, 
+	`Std_Dev`			float
+);
+
+CREATE TABLE `ADD_FTNT`
+ (
+	`NDB_NO`			varchar (510), 
+	`Footnt_No`			varchar (510), 
+	`Footnot_Typ`			varchar (510), 
+	`Nutr_No`			varchar (510), 
+	`Footnot_Txt`			varchar (510)
 );
 
 CREATE TABLE `LANGUAL`
