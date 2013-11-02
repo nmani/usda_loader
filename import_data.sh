@@ -5,6 +5,15 @@ if [ $# -lt 3 ]; then
 	exit
 fi
 
+# Check for shit we need
+echo 'Checking for necessary programs...'
+UTILS=("dos2unix" "wget" "mysql")
+for util in "${UTILS[@]}"
+do
+	command -v $util >/dev/null 2>&1 || { echo >&2 "Please install $util"; exit 1; }
+	echo "Found: $util"
+done
+
 export MY_USER=$1
 export MY_PASS=$2
 export MY_DB=$3
@@ -12,8 +21,8 @@ export MY_DB=$3
 export MY_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
 # Current release
-export DL_URL=https://www.ars.usda.gov/SP2UserFiles/Place/12354500/Data/SR25/dnload/sr25.zip
-export DL_URL2=https://www.ars.usda.gov/SP2UserFiles/Place/12354500/Data/SR25/dnload/sr25abbr.zip
+export DL_URL=https://www.ars.usda.gov/SP2UserFiles/Place/12354500/Data/SR26/dnload/sr26.zip
+export DL_URL2=https://www.ars.usda.gov/SP2UserFiles/Place/12354500/Data/SR26/dnload/sr26abbr.zip
 
 if [ ! -d "$MY_DIR/tmp" ]; then
 	echo 'Local tmp directory not found... creating one'
