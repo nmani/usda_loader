@@ -7,7 +7,7 @@ fi
 
 # Check for shit we need
 echo 'Checking for necessary programs...'
-UTILS=("dos2unix" "wget" "mysql")
+UTILS=("dos2unix" "wget" "mysql" "unzip" "command")
 for util in "${UTILS[@]}"
 do
 	command -v $util >/dev/null 2>&1 || { echo >&2 "Please install $util"; exit 1; }
