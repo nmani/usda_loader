@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 if [ $# -lt 3 ]; then
-	echo "Expecting: './import_data.sh [MYSQL_USER] [MYSQL_PASSWORD] [MYSQL_DB]'"
+	echo "Expecting: './import_data.sh [HOSTNAME] [MYSQL_USER] [MYSQL_PASSWORD] [MYSQL_DB]'"
 	exit
 fi
 
@@ -14,9 +14,10 @@ do
 	echo "Found: $util"
 done
 
-export MY_USER=$1
-export MY_PASS=$2
-export MY_DB=$3
+export MY_HOSTNAME=$1
+export MY_USER=$2
+export MY_PASS=$3
+export MY_DB=$4
 
 export MY_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
@@ -50,6 +51,6 @@ EOF
 
 echo 'Executing combined raw and schema SQL statements...'
 cat $MY_DIR/schema.sql $MY_DIR/tmp/raw_data.sql > $MY_DIR/tmp/fin_out.sql
-mysql --local-infile=1 -u$MY_USER -p$MY_PASS $MY_DB < $MY_DIR/tmp/fin_out.sql
+mysql --local-infile=1 -h$MY_HOSTNAME -u$MY_USER -p$MY_PASS $MY_DB < $MY_DIR/tmp/fin_out.sql
 
 echo 'DONE'
