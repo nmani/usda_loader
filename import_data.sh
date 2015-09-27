@@ -23,8 +23,8 @@ export CURR_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 export MY_DIR=/tmp
 
 # Current release
-export DL_URL=https://www.ars.usda.gov/SP2UserFiles/Place/12354500/Data/SR26/dnload/sr26.zip
-export DL_URL2=https://www.ars.usda.gov/SP2UserFiles/Place/12354500/Data/SR26/dnload/sr26abbr.zip
+export DL_URL=https://www.ars.usda.gov/SP2UserFiles/Place/12354500/Data/SR27/dnload/sr27asc.zip
+export DL_URL2=https://www.ars.usda.gov/SP2UserFiles/Place/12354500/Data/SR27/dnload/sr27abbr.zip
 
 if [ ! -d "$MY_DIR/usda_tmp" ]; then
 	echo '[INFO] Local tmp directory not found... creating one'
