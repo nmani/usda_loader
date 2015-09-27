@@ -1,0 +1,21 @@
+prog:
+  build: .
+  environment:
+    - MYSQL_ROOT_PASSWORD=56Br07Q2mGaSenh
+    - MYSQL_DATABASE=usda_nutri
+    - MYSQL_USER=usda
+    - MYSQL_PASSWORD=1mYabNp7INzj2vX
+  command: ./import_data.sh usda
+  links:
+    - usda
+  dns:
+    - 8.8.8.8
+    - 8.8.4.4
+usda:
+  image: mysql:latest
+  environment:
+    - MYSQL_ROOT_PASSWORD=56Br07Q2mGaSenh
+    - MYSQL_DATABASE=usda_nutri
+    - MYSQL_USER=usda
+    - MYSQL_PASSWORD=1mYabNp7INzj2vX
+
