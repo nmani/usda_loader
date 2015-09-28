@@ -6,6 +6,8 @@ prog:
     - MYSQL_USER=usda
     - MYSQL_PASSWORD=1mYabNp7INzj2vX
   command: ./import_data.sh usda
+  volumes:
+  - ./:/output
   links:
     - usda
   dns:
