@@ -55,5 +55,5 @@ cat $CURR_DIR/schema.sql $MY_DIR/usda_tmp/raw_data.sql > $MY_DIR/usda_tmp/fin_ou
 mysql --local-infile=1 -h$MY_HOSTNAME -u$MY_USER -p$MY_PASS $MY_DB < $MY_DIR/usda_tmp/fin_out.sql
 
 echo '[INFO] Dump the .sql file for output'
-mysqldump -h$MY_HOSTNAME -u$MY_USER -p$MY_PASS $MY_DB > $MY_DIR/usda_tmp/db_dump.sql
+mysqldump -h$MY_HOSTNAME -u$MY_USER -p$MY_PASS $MY_DB > /output/db_dump.sql
 echo '[INFO] DONE'

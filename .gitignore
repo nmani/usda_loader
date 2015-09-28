@@ -1,7 +1,1 @@
-tmp/
-tmp/*.*
-*.zip*
-*.pdf*
-
-raw_data.sql
-fin_import.sql
+db_dump.sql
