@@ -18,4 +18,3 @@ usda:
     - MYSQL_DATABASE=usda_nutri
     - MYSQL_USER=usda
     - MYSQL_PASSWORD=1mYabNp7INzj2vX
-
